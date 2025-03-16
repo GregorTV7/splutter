@@ -1,93 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All About Coffee</title>
-    <style>
-        body {
-            font-family: "Courier New", monospace;
-            background-color: #fff8dc;
-            color: #2f4f4f;
-            margin: 0;
-            padding: 0;
-        }
-        h1 {
-            text-align: center;
-            color: #6a4e23;
-            font-size: 3em;
-            background-color: #ffebcd;
-            padding: 20px;
-            margin: 0;
-        }
-        h2 {
-            color: #8b4513;
-            font-size: 2em;
-            text-align: center;
-            margin-top: 20px;
-        }
-        p {
-            color: #8b4513;
-            padding: 20px;
-            background-color: #f0e68c;
-            margin: 10px;
-            border-radius: 10px;
-        }
-        a {
-            color: #d2691e;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        a:hover {
-            color: #ff6347;
-            text-decoration: underline;
-        }
-        .container {
-            padding: 10px;
-            background-color: #f5deb3;
-            margin: 20px;
-            border: 3px dashed #6a4e23;
-        }
-        .footer {
-            text-align: center;
-            font-size: 1em;
-            color: #2f4f4f;
-            background-color: #fffacd;
-            padding: 15px;
-            margin-top: 30px;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Forest basins</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="./Qgis2threejs.css">
 </head>
 <body>
+<div id="webgl"></div>
 
-    <h1>All About Coffee</h1>
+<div style="position:absolute;top:0px;left:0px;"><img src="legend.png"></div>
 
-    <div class="container">
-        <h2>What is Coffee?</h2>
-        <p>Coffee is a brewed beverage made from roasted coffee beans, the seeds of berries from the Coffea plant. It's one of the most popular drinks worldwide and has a long history dating back centuries.</p>
-    </div>
+<!-- popup -->
+<div id="popup" style="display:none;">
+<div id="closebtn">&times;</div>
+<div id="popupbar"></div>
+<div id="popupbody">
+ <div id="popupcontent"></div>
+ <div id="pageinfo">
+  <h1>Current View URL</h1>
+  <div><input id="urlbox" type="text"></div>
 
-    <div class="container">
-        <h2>Types of Coffee</h2>
-        <p>There are many different types of coffee, from espresso and cappuccino to lattes and cold brew. Each type has its own unique preparation method and flavor profile!</p>
-        <ul>
-            <li>Espresso</li>
-            <li>Cappuccino</li>
-            <li>Latte</li>
-            <li>Americano</li>
-            <li>Cold Brew</li>
-        </ul>
-    </div>
+  <h1>Usage</h1>
+  <div id="usage"></div>
 
-    <div class="container">
-        <h2>Why Do People Love Coffee?</h2>
-        <p>Coffee gives an energy boost and is a great way to socialize. Whether it's for the rich flavor or the caffeine kick, coffee has become a part of daily life for millions.</p>
-        <p>It’s perfect for morning routines, work breaks, and even social gatherings. Coffee shops have become the go-to spots for meeting friends, reading, or just relaxing.</p>
-    </div>
+  <h1>About</h1>
+  <div id="about">This page was made with <a href="http://www.qgis.org/" target="_blank">QGIS</a> and <a href="https://github.com/minorua/Qgis2threejs" target="_blank">Qgis2threejs</a> plugin, 
+and uses the following library:
+  <ul>
+  <li>three.js <a href="http://threejs.org/" target="_blank">http://threejs.org/</a> <a href="./threejs/LICENSE" target="_blank" class="license">(LICENSE)</a></li>
+  <li>dat-gui <a href="https://code.google.com/p/dat-gui/" target="_blank">https://code.google.com/p/dat-gui/</a> <a href="./dat-gui/license.txt" target="_blank" class="license">(LICENSE)</a></li>
+  <li id="lib_proj4js" style="display: none;">Proj4js <a href="http://trac.osgeo.org/proj4js/" target="_blank">http://trac.osgeo.org/proj4js/</a> <a href="./proj4js/LICENSE.md" target="_blank" class="license">(LICENSE)</a></li>
+  </ul>
+  </div>
+ </div>
+</div></div>
 
-    <div class="footer">
-        <p>Want to learn more about coffee? Visit <a href="https://en.wikipedia.org/wiki/Coffee" target="_blank">Coffee on Wikipedia</a>!</p>
-    </div>
+<!-- footer -->
+<div id="footer"></div>
 
+<script src="./threejs/three.min.js"></script>
+<script src="./Qgis2threejs.js"></script>
+<script src="./threejs/OrbitControls.js"></script>
+<script>
+var option = Q3D.Options;
+
+</script>
+<script src="./slope.js"></script>
+<script>
+if (typeof proj4 !== "undefined") document.getElementById("lib_proj4js").style.display = "list-item";
+
+var container = document.getElementById("webgl");
+// initialize application
+var app = Q3D.application;
+app.init(container);
+
+// load the project
+app.loadProject(project);
+
+app.addEventListeners();
+app.start();
+
+</script>
+<script src="./dat-gui/dat.gui.min.js"></script>
+<script src="./dat-gui_panel.js"></script>
+<script>
+// initialize dat-gui panel
+Q3D.gui.init();
+</script>
 </body>
 </html>
