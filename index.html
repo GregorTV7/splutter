@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chai Linux - In Development</title>
+    <title>Chai Linux</title>
     <style>
         * {
             margin: 0;
@@ -14,7 +14,7 @@
         }
 
         body {
-            background-color: #a6a6a6; /* Solid black background */
+            background-color: #000000; /* Solid black background */
             color: #f4f4f4; /* Light text for contrast on black background */
             line-height: 1.6;
             display: flex;
@@ -49,14 +49,14 @@
             padding: 30px;
             width: 80%;
             text-align: center;
-            background-color: #b3b07f; /* Change background color to #b3b07f */
+            background-color: #000000; /* Black background */
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow with more depth */
         }
 
         h2 {
             font-size: 2.5rem;
-            color: #333;
+            color: #fff; /* White text */
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 20px;
@@ -64,7 +64,7 @@
 
         p, ul {
             font-size: 1.1rem;
-            color: #444;
+            color: #fff; /* White text */
             margin-bottom: 20px;
         }
 
@@ -98,9 +98,9 @@
         }
 
         footer {
-            background-color: #b3b07f; /* Change footer background to #b3b07f */
+            background-color: #000000; /* Black footer background */
             padding: 20px 0;
-            color: #333;
+            color: #fff; /* White text */
             width: 100%;
             text-align: center;
             box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05); /* Soft shadow for footer */
@@ -111,7 +111,7 @@
         }
 
         .intro, .supported-archs, .base-distros, .future-plans, .coming-soon {
-            background: #b3b07f; /* Change section background to #b3b07f */
+            background: #000000; /* Black background for sections */
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -119,7 +119,7 @@
         }
 
         .notice {
-            background-color: #b3b07f; /* Change notice background to #b3b07f */
+            background-color: #000000; /* Black background for notice */
             color: white;
             padding: 15px;
             margin-top: 20px;
@@ -153,6 +153,19 @@
             align-items: center;
         }
 
+        .bold-text {
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .italic-text {
+            font-style: italic;
+        }
+
+        .larger-text {
+            font-size: 1.5rem;
+        }
+
     </style>
 </head>
 <body>
@@ -168,8 +181,8 @@
     <section class="coming-soon">
         <div class="container">
             <div class="text-content">
-                <h2>Chai Linux is Coming Soon!</h2>
-                <p>Stay tuned for more details. We're still working on this exciting project!</p>
+                <h2>Chai Linux is <span class="bold-text">Coming Soon!</span></h2> <!-- Made "Coming Soon!" bold -->
+                <p class="larger-text">Stay tuned for more details. We're still working on this exciting project!</p> <!-- Increased font size -->
             </div>
             <div class="media-content">
                 <!-- Use your tux.gif here -->
@@ -196,8 +209,8 @@
         <h2>Chai Linux Base Distributions</h2>
         <p>Chai Linux can be based on a variety of upstream distributions. Right now, we are exploring the following:</p>
         <ul>
-            <li>Debian - The stability and vast package availability.</li>
-            <li>Gentoo - For those who want complete control and optimization.</li>
+            <li><span class="bold-text">Debian</span> - The stability and vast package availability.</li> <!-- Made Debian bold -->
+            <li><span class="italic-text">Gentoo</span> - For those who want complete control and optimization.</li> <!-- Gentoo italic -->
             <li>Slackware - A classic approach with simplicity and minimalism.</li>
             <li>AntiX - A lightweight option for older hardware.</li>
         </ul>
@@ -205,7 +218,7 @@
 
     <section class="future-plans">
         <h2>Future Plans</h2>
-        <p>We are excited about the possibility of creating a text-based installer that will make installing Chai Linux even easier and more customizable. The installer will guide users through a simple and intuitive process, helping them install Chai Linux on a wide variety of systems.</p>
+        <p class="italic-text">We are excited about the possibility of creating a text-based installer that will make installing Chai Linux even easier and more customizable. The installer will guide users through a simple and intuitive process, helping them install Chai Linux on a wide variety of systems.</p> <!-- Italicized future plans text -->
     </section>
 
     <section class="notice">
