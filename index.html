@@ -17,18 +17,24 @@
             background-color: #1a1a1a;
             color: white;
             line-height: 1.6;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
         }
 
         header {
             background-color: #333;
             padding: 40px 0;
+            text-align: center;
+            width: 100%;
         }
 
         .header-content h1 {
-            font-size: 3rem;
+            font-size: 4rem; /* Larger title */
             color: #ff9900;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.7); /* Shadow behind text */
         }
 
         header p {
@@ -39,6 +45,8 @@
         section {
             margin: 40px 0;
             padding: 20px;
+            width: 80%; /* Adds space for images on sides */
+            text-align: center;
         }
 
         h2 {
@@ -87,17 +95,20 @@
             background-color: #333;
             padding: 20px 0;
             color: #ffcc00;
+            width: 100%;
+            text-align: center;
         }
 
         footer p {
             font-size: 1rem;
         }
 
-        .intro, .supported-archs, .base-distros, .future-plans {
+        .intro, .supported-archs, .base-distros, .future-plans, .coming-soon {
             background: #222;
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            margin-bottom: 30px;
         }
 
         .notice {
@@ -108,15 +119,55 @@
             font-weight: bold;
             border-radius: 5px;
         }
+
+        .coming-soon img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+        }
+
+        /* Added padding and margins for space on the sides */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .text-content {
+            flex: 0 0 60%; /* Text will take up 60% of the container width */
+            padding-right: 20px;
+        }
+
+        .media-content {
+            flex: 0 0 35%; /* Media will take up the remaining 35% */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
     </style>
 </head>
 <body>
+
     <header>
         <div class="header-content">
             <h1>Welcome to Chai Linux</h1>
             <p>A new Linux distro with flexibility, power, and style.</p>
         </div>
     </header>
+
+    <section class="coming-soon">
+        <div class="container">
+            <div class="text-content">
+                <h2>Chai Linux is Coming Soon!</h2>
+                <p>Stay tuned for more details. We're still working on this exciting project!</p>
+            </div>
+            <div class="media-content">
+                <img src="your-coming-soon-gif.gif" alt="Coming Soon!">
+            </div>
+        </div>
+    </section>
 
     <section class="intro">
         <h2>About Chai Linux</h2>
